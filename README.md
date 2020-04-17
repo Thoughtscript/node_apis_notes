@@ -6,11 +6,25 @@ Node API refresh notes.
 
 ## Use
 
-```bash
+```Bash
 $ npm i
 $ npm run start
 $ npm run stop-linux
 $ npm run stop-win
+```
+
+## Individually
+
+```Bash
+$ npm run cluster
+$ npm run http-rest
+```
+
+## Tests
+
+```Bash
+$ npm run cluster-test
+$ npm run http-rest
 ```
 
 ## Contents

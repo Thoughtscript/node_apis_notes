@@ -8,8 +8,7 @@
 
 const R = require('./restRequest.js')
 
-try {
-
+const UNIT_TESTS = () => {
     R.asyncGet('http:', 'jsonplaceholder.typicode.com', 80, '/posts?id=12')
         .then(success => {
             success = success.replace('undefined', '')
@@ -26,7 +25,7 @@ try {
             console.error(fail)
         })
 
-    R.asyncDelete('http:', 'jsonplaceholder.typicode.com', 80, '/posts?id=2')
+    R.asyncDelete('http:', 'jsonplaceholder.typicode.com', 80, '/posts/2')
         .then(success => {
             success = success.replace('undefined', '')
             console.log(success)
@@ -58,7 +57,16 @@ try {
         }, fail => {
             console.error(fail)
         })
+}
+
+try {
+
+  UNIT_TESTS()
 
 } catch (ex) {
     console.error(`Exception ${ex}!`)
+}
+
+module.exports = {
+    HTTP_TEST: UNIT_TESTS
 }

@@ -7,6 +7,8 @@
  */
 
 const {createHttpCluster} = require('./nodeCluster')
+const {CLUSTER_TESTS} = require('./nodeCluster/test')
+const {HTTP_TEST} = require('./nodeHttp/test')
 
 try {
 
@@ -16,6 +18,8 @@ try {
     process.on('exit', msg => { console.log(`Service shutting down: ${msg}`) })
 
     createHttpCluster()
+    CLUSTER_TESTS()
+    HTTP_TEST()
 
 } catch (ex) {
     console.error(`Exception ${ex}!`)

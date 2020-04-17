@@ -6,7 +6,9 @@
     "start": "node main.js",
     "stop-win": "Taskkill /IM node.exe /F",
     "stop-linux": "killall node",
-    "cluster": "node nodeCluster/index.js"
+    "cluster": "node nodeCluster/index.js",
+    "cluster-test": "node nodeCluster/test.js",
+    "http-rest": "node nodeHttp/test.js"
   },
   "engines": {
     "node": "=13.8.0"
