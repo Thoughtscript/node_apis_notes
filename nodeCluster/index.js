@@ -11,23 +11,32 @@ const {createHttpServer} = require('./httpServer.js')
 const CL = require('cluster'),
  C = require('../config').CLUSTER
 
-module.exports = {
-    createHttpCluster: () => {
-        if (CL.isMaster) {
+const  createHttpCluster = () => {
+    if (CL.isMaster) {
+        let cpuCount = require('os').cpus().length
+        cpuCount = C.WORKERS
 
-            let cpuCount = require('os').cpus().length
-            cpuCount = C.WORKERS
+        for (let i = 0; i < cpuCount; i++) {
+            CL.fork()
+        }
 
-            for (let i = 0; i < cpuCount; i++) {
+        CL.on('fork', worker => console.log(`Worker %d created: ${worker.id}`))
+            .on('exit', worker => {
+                console.error(`Worker %d died: ${worker.id}`)
                 CL.fork()
-            }
+         })
 
-            CL.on('fork', worker => console.log(`Worker %d created: ${worker.id}`))
-                .on('exit', worker => {
-                    console.error(`Worker %d died: ${worker.id}`)
-                    CL.fork()
-                })
+    } else createHttpServer(C.PORT)
+}
 
-        } else createHttpServer(C.PORT)
-    }
+module.exports = {
+    createHttpCluster: createHttpCluster
+}
+
+try {
+
+    createHttpCluster()
+
+} catch (ex) {
+    console.error(ex)
 }

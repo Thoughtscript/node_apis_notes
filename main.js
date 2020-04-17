@@ -6,9 +6,10 @@
  * Main method.
  */
 
+const {BUFFER_TESTS} = require('./nodeBuffer/test')
+const {HTTP_TEST} = require('./nodeHttp/test')
 const {createHttpCluster} = require('./nodeCluster')
 const {CLUSTER_TESTS} = require('./nodeCluster/test')
-const {HTTP_TEST} = require('./nodeHttp/test')
 
 try {
 
@@ -17,9 +18,12 @@ try {
     process.on('uncaughtException', exception => { console.error(`Error encountered: ${exception}`) })
     process.on('exit', msg => { console.log(`Service shutting down: ${msg}`) })
 
+    BUFFER_TESTS()
+
+    HTTP_TEST()
+
     createHttpCluster()
     CLUSTER_TESTS()
-    HTTP_TEST()
 
 } catch (ex) {
     console.error(`Exception ${ex}!`)
