@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node main.js",
     "stop-win": "Taskkill /IM node.exe /F",
-    "stop-linux": "killall node"
+    "stop-linux": "killall node",
+    "cluster": "node nodeCluster/index.js"
   },
   "engines": {
     "node": "=13.8.0"
@@ -23,5 +24,6 @@
   ],
   "author": "Adam I. Gerard",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+  }
 }

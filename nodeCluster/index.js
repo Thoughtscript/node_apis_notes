@@ -6,14 +6,18 @@
  * Core cluster logic.
  */
 
-const CL = require('cluster/cluster'),
-    C = require('../../config')
+const {createHttpServer} = require('./httpServer.js')
+
+const CL = require('cluster'),
+ C = require('../config').CLUSTER
 
 module.exports = {
     createHttpCluster: () => {
         if (CL.isMaster) {
+
             let cpuCount = require('os').cpus().length
-            if (C.CLUSTER != null) cpuCount = C.CLUSTER
+            cpuCount = C.WORKERS
+
             for (let i = 0; i < cpuCount; i++) {
                 CL.fork()
             }
@@ -24,6 +28,6 @@ module.exports = {
                     CL.fork()
                 })
 
-        } else require('../server/http').createHttpServer(C.PORT)
+        } else createHttpServer(C.PORT)
     }
 }
