@@ -23,7 +23,3 @@ try {
 } catch (e) {
     console.error(e)
 }
-
-module.exports = {
-    BUFFER_TESTS: UNIT_TESTS
-}

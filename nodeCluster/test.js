@@ -69,7 +69,3 @@ try {
 } catch (ex) {
     console.error(`Exception ${ex}!`)
 }
-
-module.exports = {
-    CLUSTER_TESTS: UNIT_TESTS
-}

@@ -13,12 +13,17 @@ $ npm run stop-linux
 $ npm run stop-win
 ```
 
+> Take a look at [main.js](main.js) and uncomment the tests! (Running the tests individually is recommended.)
+
+Tests are to be run from the [this] root directory. Slight modification of file paths may be required if you run tests from within the sub-directories!
+
 ## Individually
 
 ```Bash
 $ npm run cluster
 $ npm run http-rest
 $ npm run buffer-test
+$ npm run thread-test
 ```
 
 ## Tests
@@ -27,6 +32,7 @@ $ npm run buffer-test
 $ npm run cluster-test
 $ npm run http-rest
 $ npm run buffer-test
+$ npm run thread-test
 ```
 
 ## Contents

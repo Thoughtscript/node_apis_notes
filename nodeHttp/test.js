@@ -66,7 +66,3 @@ try {
 } catch (ex) {
     console.error(`Exception ${ex}!`)
 }
-
-module.exports = {
-    HTTP_TEST: UNIT_TESTS
-}

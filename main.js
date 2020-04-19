@@ -6,11 +6,6 @@
  * Main method.
  */
 
-const {BUFFER_TESTS} = require('./nodeBuffer/test')
-const {HTTP_TEST} = require('./nodeHttp/test')
-const {createHttpCluster} = require('./nodeCluster')
-const {CLUSTER_TESTS} = require('./nodeCluster/test')
-
 try {
 
     process.on('warning', warning => { console.error(`Warning encountered: ${warning}`) })
@@ -18,12 +13,13 @@ try {
     process.on('uncaughtException', exception => { console.error(`Error encountered: ${exception}`) })
     process.on('exit', msg => { console.log(`Service shutting down: ${msg}`) })
 
-    BUFFER_TESTS()
+    //require('./nodeBuffer/test')
+    //require('./nodeHttp/test')
+    //require('./nodeThread/test')
+    //require('./nodeCluster')
+    //require('./nodeCluster/test')
 
-    HTTP_TEST()
-
-    createHttpCluster()
-    CLUSTER_TESTS()
+    console.log(`Take a look at main.js and uncomment the tests! (Running the tests individually is recommended.)\n`)
 
 } catch (ex) {
     console.error(`Exception ${ex}!`)

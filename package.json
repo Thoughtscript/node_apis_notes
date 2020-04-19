@@ -7,8 +7,10 @@
     "stop-win": "Taskkill /IM node.exe /F",
     "stop-linux": "killall node",
     "cluster": "node nodeCluster/index.js",
+    "buffer-test": "node nodeBuffer/test.js",
     "cluster-test": "node nodeCluster/test.js",
-    "http-rest": "node nodeHttp/test.js"
+    "http-rest": "node nodeHttp/test.js",
+    "thread-test": "node nodeThread/test.js"
   },
   "engines": {
     "node": "=13.8.0"
