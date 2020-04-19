@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/Node.js-13.8.0-yellowgreen.svg)](https://nodejs.org/en/) 
 
-Node API refresh notes.
+Node API refresh notes (in unit and integration testing format).
 
 ## Use
 
@@ -19,17 +19,16 @@ Tests are to be run from the [this] root directory. Slight modification of file 
 
 ## Individually
 
+The cluster tests must be started in this order:
+
 ```Bash
 $ npm run cluster
-$ npm run http-rest
-$ npm run buffer-test
-$ npm run thread-test
+$ npm run cluster-test
 ```
 
-## Tests
+These can be started in whatever order:
 
 ```Bash
-$ npm run cluster-test
 $ npm run http-rest
 $ npm run buffer-test
 $ npm run thread-test
