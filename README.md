@@ -18,6 +18,7 @@ $ npm run stop-win
 ```Bash
 $ npm run cluster
 $ npm run http-rest
+$ npm run buffer-test
 ```
 
 ## Tests
@@ -25,11 +26,17 @@ $ npm run http-rest
 ```Bash
 $ npm run cluster-test
 $ npm run http-rest
+$ npm run buffer-test
 ```
 
 ## Contents
 
 1. NodeJS [Buffer class](https://nodejs.org/api/buffer.html#buffer_class_method_buffer_from_array)
-2. NodeJS [Cluster](https://nodejs.org/docs/latest/api/cluster.html)
-3. NodeJS [Worker Threads](https://nodejs.org/docs/latest/api/worker_threads.html)
-4. NodeJS [HTTP Server-side REST](https://nodejs.org/api/http.html#http_http_request_options_callback)
+1. NodeJS [Cluster](https://nodejs.org/docs/latest/api/cluster.html)
+1. NodeJS [Worker Threads](https://nodejs.org/docs/latest/api/worker_threads.html)
+1. NodeJS [HTTP Server-side REST](https://nodejs.org/api/http.html#http_http_request_options_callback)
+
+## Resources
+
+1. https://medium.com/the-andela-way/scaling-out-with-node-clusters-1dca4a39a2a
+1. https://blog.logrocket.com/node-js-multithreading-what-are-worker-threads-and-why-do-they-matter-48ab102f8b10/
